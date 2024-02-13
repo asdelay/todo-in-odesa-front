@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #403842;
+}
+.wrapper {
+    font-family: 'Roboto', sans-serif;
+    margin: 0 5px;
+    width: calc(100vw - 500px);
+    @media (max-width:1176px){
+        width: calc(100vw - 250px);
+        padding: 48px;
+    }
+    @media (max-width:828px){
+        width: calc(100vw - 50px);
+        padding: 32px;
+        
+    }
+    @media (max-width:510px){
+        width: calc(100vw - 50px);
+        padding: 24px;
+        
+    }
+    // height: calc(100vh - 50px);
+    background-color: #353134;
+    margin: 35px auto;
+    border-radius: 15px;
+    padding: 64px;
+    display: flex;
+    flex-direction: column;
+    .header{
+        text-align: center;
+        font-size: 44px;
+        @media (max-width:828px){
+            font-size: 32px;
+        }
+        font-weight: 100;
+        h1{
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            letter-spacing: 5px;
+        }
+        .logo {
+            border-radius:12px;
+            @media (max-width:828px){
+               width:260px
+            }
+        }
+    }
+    .body {
+        padding: 64px;
+        @media (max-width:1176px){
+            padding: 48px;
+        }
+        @media (max-width:828px){
+            padding: 32px;
+            
+        }
+        @media (max-width:510px){
+            padding: 24px;
+        }
+        .inputInterface{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 24px 0;
+            input {
+                width: 450px;
+                padding: 28px;
+                background-color:#131313;
+                border-radius: 12px;
+                border: 0;
+                margin-bottom: 24px;
+                font-size: 24px;
+                border: 1px solid #494949;
+                color: #adadad;
+                transition: all 0.2s;
+                @media (max-width:828px){
+                    width: 350px;
+                    padding: 22px;
+                    margin-bottom: 12px;
+                    font-size: 18px;
+                }
+                @media (max-width:510px){
+                    padding: 14px;
+                    width: 200px;
+                }
+            }
+            .secondInput {
+                background-color: #00000041;
+                margin-bottom: 24px;
+                
+            }
+            input:focus {
+                outline: none;
+                width:calc(450px + 100px);
+                @media (max-width:828px){
+                    width:calc(350px + 50px);
+                }
+                @media (max-width:510px){
+                    padding: 14px;
+                    width:calc(200px + 25px);
+                }
+            }
+            button {
+                padding: 22px;
+                border-radius: 12px;
+                font-size: 18px;
+                transition: all 0.164s;
+                background-color: #c4c4c4;
+                color:#313131;
+                border: none;
+                @media (max-width:828px){
+                    padding: 16px;
+                    border-radius: 8px;
+                }
+            }
+            button:hover {
+                cursor: pointer;
+                background-color: #242424;
+                color: #acacac;
+            }
+        }
+        .todos {
+            display: flex;
+            flex-flow: row wrap;
+            padding: 48px;
+            @media (max-width: 1176px){
+                padding: 12px;
+            }
+            justify-content: space-around;
+            .todo {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                overflow-wrap: break-word;
+                background-color: #00000041;
+                margin: 14px;
+                width: 250px;
+                border-radius: 12px;
+                text-align: center;
+                &__header {
+                    background-color: #131313;
+                    border-top-left-radius: 12px;
+                    border-top-right-radius: 12px;
+                    width: 100%;
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                    color: #acacac;
+                }
+                &__content {
+                    color: #7a7a7a;
+                    position: relative;
+                    width: 100%;
+                    padding: 24px;
+                }
+                &__footer {
+                    width: 100%;
+                    color: #7a7a7a;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                }
+                svg{
+                    width: 24px;
+                    height: 24px;
+                }
+                .firstSVG, .secondSVG{
+                    cursor: pointer;
+                }
+                
+            }
+        }
+    }
+}
