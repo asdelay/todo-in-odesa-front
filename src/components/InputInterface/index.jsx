@@ -1,35 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../../styles/App.scss';
-const Index = ({ setInputValues, onButtonClick }) => {
-  const [childInputValues, setChildInputValues] = useState({});
+const Index = ({ inputValues, setInputValues, onButtonClick }) => {
   return (
     <div className="inputInterface">
       <input
         placeholder="сюда вводить название штуки"
         onChange={(e) => {
-          setChildInputValues({ ...childInputValues, firstInput: e.target.value });
+          setInputValues({ ...inputValues, firstInput: e.target.value });
         }}
-        value={childInputValues.firstInput}
+        value={inputValues.firstInput || ''}
       />
       <input
         className="secondInput"
         placeholder="сюда вводить все остальное про штуку"
         onChange={(e) => {
-          setChildInputValues({ ...childInputValues, secondInput: e.target.value });
+          setInputValues({ ...inputValues, secondInput: e.target.value });
         }}
-        value={childInputValues.secondInput}
+        value={inputValues.secondInput || ''}
       />
-      {childInputValues.firstInput ? (
+      {inputValues.firstInput ? (
         <button
           onClick={() => {
-            onButtonClick(childInputValues);
-            setChildInputValues({ firstInput: '', secondInput: '' });
-            setInputValues(childInputValues);
+            onButtonClick(inputValues);
+            setInputValues({ firstInput: '', secondInput: '' });
           }}>
           сохранить штуку
         </button>
       ) : (
-        <button onClick={() => alert('надо больше данных')}>сохранить штуку</button>
+        <button disabled onClick={() => alert('надо больше данных')}>
+          блин блинский нечего сохранять
+        </button>
       )}
     </div>
   );

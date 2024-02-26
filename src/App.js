@@ -6,6 +6,9 @@ import InputInterface from './components/InputInterface';
 import Todo from './components/Todo';
 import logo from './img/IMG_2420.gif';
 
+// const backURL = 'http://localhost:8080/';
+const backURL = 'https://todo-in-odesa.onrender.com/';
+
 function App() {
   const [inputValues, setInputValues] = useState({});
   const [todos, setTodos] = useState([]);
@@ -13,20 +16,20 @@ function App() {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get('https://todo-in-odesa.onrender.com/').then((res) => {
+    axios.get(backURL).then((res) => {
       setTodos(res.data);
       setIsLoading(false);
     });
-  }, [inputValues]);
+  }, []);
 
   const onButtonClick = async (todoDataObj) => {
     axios
-      .post('https://todo-in-odesa.onrender.com/', {
+      .post(backURL, {
         title: todoDataObj.firstInput,
         content: todoDataObj.secondInput,
       })
       .then(function (response) {
-        console.log(response);
+        setTodos(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -41,6 +44,7 @@ function App() {
       </div>
       <div className="body">
         <InputInterface
+          inputValues={inputValues}
           setInputValues={(someObj) => setInputValues(someObj)}
           onButtonClick={(todoDataObj) => {
             onButtonClick(todoDataObj);
@@ -59,6 +63,7 @@ function App() {
                     setTodo={(res) => {
                       setTodos(res.data);
                     }}
+                    backURL={backURL}
                   />
                 );
               })}
